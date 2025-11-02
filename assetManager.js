@@ -32,8 +32,7 @@ class AssetManager {
         input.value = '';
     });
 
-    // Make addAssetToUI available globally (:
-    window.addAssetToUI = function(id, name, data, type) {
+    function addAssetToUI(id, name, data, type) {
         const item = document.createElement('div');
         item.className = 'asset-item';
         item.dataset.assetId = id;
@@ -122,3 +121,4 @@ export function initAssetManager() {
     assetManager.init();
     assetManager.init();
 }
+
