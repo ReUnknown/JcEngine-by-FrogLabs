@@ -32,7 +32,7 @@ class AssetManager {
         input.value = '';
     });
 
-    // Make addAssetToUI available globally
+    // Make addAssetToUI available globally (:
     window.addAssetToUI = function(id, name, data, type) {
         const item = document.createElement('div');
         item.className = 'asset-item';
