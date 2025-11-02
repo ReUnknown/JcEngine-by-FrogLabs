@@ -6,7 +6,8 @@ import {
     getScriptContent, 
     saveScript 
 } from './editor.js';
-import { createDemoMenu } from './demoGames.js';
+import { adManager } from './adManager.js';
+
 import { assetManager } from './assetManager.js';
 
 // Initialize modules
@@ -104,9 +105,6 @@ async function initializeApp() {
     if (clearOutputBtn) {
         clearOutputBtn.addEventListener('click', clearOutput);
     }
-
-    // Initialize demo games menu
-    createDemoMenu();
 
     // Initialize editor
     editor = await initEditor();
@@ -577,3 +575,4 @@ function startVerticalDrag(e) {
   window.addEventListener('mousemove', onMove, { passive: true });
   window.addEventListener('mouseup', onUp);
 }
+
