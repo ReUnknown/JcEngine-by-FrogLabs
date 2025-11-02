@@ -11,7 +11,10 @@ const app = express();
 // IMPORTANT: correct OpenAI client init (object with apiKey)
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
-app.use(cors());
+app.use(cors({
+  origin: ['https://ReUnknown.github.io'],
+  methods: ['GET', 'POST'],
+}));
 app.use(express.json());
 
 // Cache for the interpreter content
@@ -116,3 +119,4 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
