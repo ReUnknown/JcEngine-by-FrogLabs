@@ -5,33 +5,14 @@ const DARK_THEME = 'ace/theme/monokai';
 const LIGHT_THEME = 'ace/theme/chrome';
 
 const SCRIPT_STORAGE_KEY = 'mainScript';
-const SCRIPT_DEFAULT = `// Welcome to JcScript! Here's a simple example:
+const SCRIPT_DEFAULT = `// Welcome to JcScript! Start coding here:
 
-make background #87ceeb
+make background white
 
-// Create a player box
-make it blue
-let player = spawn 50 50 40 40
-
-// Add some text
-let score = 0
-let scoreText = text "Score: 0" at (20,40) size 20 colour black font "Arial"
-
-// To use images:
-// 1. Upload them in the Assets panel (right side)
-// 2. They will be stored in the assets folder
-// 3. Reference them with .image extension like this:
-// let sprite = image "character.image" at (100,100) size 64 64
-
-// Move with arrow keys
-if key "ArrowRight" down then player.x = player.x + 5
-if key "ArrowLeft" down then player.x = player.x - 5
-if key "ArrowUp" down then player.y = player.y - 5
-if key "ArrowDown" down then player.y = player.y + 5
-
-// Update score every second
-every 1 seconds then add score 1
-every 1 seconds then scoreText.text = "Score: " + score
+// Try these commands:
+// draw circle at (100,100) radius 30
+// make it blue
+// let box = spawn 50 50 40 40
 `;
 
 let scriptState = localStorage.getItem(SCRIPT_STORAGE_KEY) || SCRIPT_DEFAULT;
@@ -317,3 +298,4 @@ function extractSimpleError(err) {
   msg = msg.split('at ')[0].trim();
   return msg || 'Error occurred';
 }
+
