@@ -399,4 +399,3 @@ class JcScriptInterpreter {
 export function createInterpreter(ctx, canvas, console, assetManager) {
   return new JcScriptInterpreter(ctx, canvas, console, assetManager);
 }
-
