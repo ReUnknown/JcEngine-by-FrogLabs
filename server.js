@@ -11,14 +11,8 @@ const app = express();
 // IMPORTANT: correct OpenAI client init (object with apiKey)
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
-app.use(cors({
-  origin: ['https://reunknown.github.io'],
-  methods: ['GET', 'POST', 'OPTIONS'],
-  optionsSuccessStatus: 200
-}));
-
+app.use(cors());
 app.use(express.json());
-
 
 // Cache for the interpreter content
 let interpreterCode = '';
