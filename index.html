@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrogLabs🐸</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ai-assistant.css">
+    <script type="importmap">
+    {
+        "imports": {
+            "ace": "https://esm.sh/ace-builds@1.32.2/src-noconflict/ace"
+        }
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="app-settings">
+                <button id="aiAssistantBtn" class="btn settings-btn" title="AI Assistant">🤖</button>
+                <button id="settingsBtn" class="btn settings-btn" title="Settings">•••</button>
+                <div id="settingsMenu" class="dropdown-menu hidden app-settings-menu">
+                    <!-- Dark Mode Toggle will be inserted here by JS -->
+                </div>
+            </div>
+
+            <!-- AI Assistant Panel -->
+            <div id="aiAssistant" class="ai-assistant hidden">
+                <div class="ai-header">
+                    <h3>JcScript Assistant</h3>
+                    <button class="ai-close" id="aiCloseBtn">×</button>
+                </div>
+                <div class="ai-messages" id="aiMessages"></div>
+                <div class="ai-input">
+                    <input type="text" id="aiInput" placeholder="Ask about JcScript...">
+                    <button id="aiSendBtn">Send</button>
+                </div>
+            </div>
+            <div class="toolbar">
+                <button id="runBtn" class="btn btn-primary">▶ Run</button>
+                <button id="fixCodeBtn" class="btn btn-secondary">🔧 Fix</button>
+                <button id="fullscreenBtn" class="btn">⛶ Fullscreen</button>
+                <div class="panel-toggle-container">
+                    <button id="togglePanelsBtn" class="btn">🗗</button>
+                    <div id="panelMenu" class="dropdown-menu hidden">
+                        <!-- Panel visibility items -->
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Layout -->
+        <div class="main-layout">
+            <!-- Left Panel: Code Editor -->
+            <div class="panel left-panel">
+                <div class="panel-header">
+                    <h2>Script</h2>
+                    <button id="saveBtn" class="btn btn-secondary btn-slim">Save</button>
+                </div>
+                <div id="editor"></div>
+            </div>
+
+            <!-- Resizer between Left and Center -->
+            <div class="resizer resizer-vertical" id="resizer-left-center" aria-label="Resize left panel" role="separator"></div>
+
+            <!-- Center Panel: Game Window -->
+            <div class="panel center-panel">
+                <div class="panel-header">
+                    <h2>Game Window</h2>
+                </div>
+                <div class="game-container">
+                    <canvas id="gameCanvas"></canvas>
+                </div>
+                <div class="resizer resizer-horizontal" id="resizer-game-output" aria-label="Resize output panel" role="separator"></div>
+                <div class="output-panel" id="outputPanel">
+                    <div class="panel-header">
+                        <h2>Output</h2>
+                        <button id="clearOutputBtn" class="btn btn-clear" title="Clear output">Clear</button>
+                    </div>
+                    <div id="outputContent" class="output-content"></div>
+                </div>
+            </div>
+
+            <!-- Resizer between Center and Right -->
+            <div class="resizer resizer-vertical" id="resizer-center-right" aria-label="Resize right panel" role="separator"></div>
+
+            <!-- Right Panel: Assets -->
+            <div class="panel right-panel">
+                <div class="panel-header">
+                    <h2>Assets</h2>
+                </div>
+                <div class="asset-uploader">
+                    <label for="assetInput" class="upload-label">+ Upload Asset</label>
+                    <input type="file" id="assetInput" multiple accept="image/*,audio/*">
+                </div>
+                <div id="assetList" class="asset-list"></div>
+            </div>
+        </div>
+
+        <div id="fullscreenContainer" class="fullscreen-container hidden">
+            <div class="fullscreen-header">
+                <button id="fullscreenRunStopBtn" class="btn btn-primary">▶ Run</button>
+                <button id="exitFullscreenBtn" class="btn">⊡ Exit</button>
+            </div>
+            <div class="fullscreen-game-wrapper">
+                <canvas id="fullscreenCanvas"></canvas>
+            </div>
+        </div>
+    </div>
+
+        <script type="module" src="app.js"></script>
+    <script type="module" src="documentationPanel.js"></script>
+</body>
+</html>
+    <script type="module" src="aiAssistant.js"></script>
+</body>
+</html>
